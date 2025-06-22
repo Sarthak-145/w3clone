@@ -1,7 +1,8 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import connectDB from './config/db.js';
-import lessonRoutes from './routes/lessonRoutes.js'
+import lessonRoutes from './routes/lessonRoutes.js';
+import authRoutes from './routes/authRoutes.js';
 
 dotenv.config(); //Load env variables
 
@@ -9,6 +10,10 @@ const app = express();
 
 //middleware
 app.use(express.json());
+
+//authentication
+app.use('/api/auth', authRoutes);
+
 
 //get lessons
 app.use('/api/lessons', lessonRoutes);
