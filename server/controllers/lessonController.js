@@ -3,7 +3,7 @@ import Lesson from '../models/Lesson.js';
 //getLesson will find and then send user requested data from Lesson
 export const getLesson = async (req, res) => {
     try {
-        //find is in built && it is from mongoose.
+        //find is in-built && it is from mongoose.
         const lessons = await Lesson.find();
         res.json(lessons);
     }
